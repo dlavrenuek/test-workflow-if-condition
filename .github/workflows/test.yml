@@ -21,10 +21,10 @@ jobs:
         if: github.ref == 'refs/heads/test'
         run: echo "runs"
 
-      - name: false positive with expression syntac evaluation
+      - name: false positive with expression syntax evaluation
         if: github.ref == 'refs/head/${{ env.TEST_BRANCH }}'
         run: echo "runs"
 
-      - name: false positive with expression syntac evaluation
+      - name: false positive with expression syntax evaluation
         if: false && '${{ env.EMPTY_VALUE }}'
         run: echo "runs"
