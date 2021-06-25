@@ -22,9 +22,9 @@ jobs:
         run: echo "runs"
 
       - name: false positive with expression syntax evaluation
-        if: github.ref == 'refs/head/${{ env.TEST_BRANCH }}'
+        if: github.ref == 'refs/head/${{ env.TEST_BRANCH }}' # is always executed
         run: echo "runs"
 
       - name: false positive with expression syntax evaluation
-        if: false && '${{ env.EMPTY_VALUE }}'
+        if: false && '${{ env.EMPTY_VALUE }}' # is always executed
         run: echo "runs"
