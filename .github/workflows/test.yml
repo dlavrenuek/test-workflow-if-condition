@@ -1,0 +1,30 @@
+name: test if conditions
+
+on:
+  push:
+    branches: [master]
+
+env:
+  TEST_BRANCH: "test"
+  EMPTY_VALUE: ""
+
+jobs:
+  test-conditions:
+    run-on: ubuntu-latest
+
+    steaps:
+      - name: simple evaluation on master
+        if: github.ref == 'refs/head/master'
+        run: echo "runs"
+
+      - name: simple evaluation on test
+        if: github.ref == 'refs/head/test'
+        run: echo "runs"
+
+      - name: false positive with expression syntac evaluation
+        if: github.ref == 'refs/head/${{ env.TEST_BRANCH }}'
+        run: echo "runs"
+
+      - name: false negative with expression syntac evaluation
+        if: '' == '${{ env.EMPTY_VALUE }}'
+        run: echo "runs"
