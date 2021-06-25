@@ -2,7 +2,7 @@ name: test if conditions
 
 on:
   push:
-    branches: [master]
+    branches: [master, test]
 
 env:
   TEST_BRANCH: "test"
@@ -26,5 +26,5 @@ jobs:
         run: echo "runs"
 
       - name: false negative with expression syntac evaluation
-        if: '' == '${{ env.EMPTY_VALUE }}'
+        if: true || '${{ env.EMPTY_VALUE }}'
         run: echo "runs"
