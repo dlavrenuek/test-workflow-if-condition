@@ -10,7 +10,7 @@ env:
 
 jobs:
   test-conditions:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: simple evaluation on master
