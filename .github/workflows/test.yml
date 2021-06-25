@@ -12,7 +12,7 @@ jobs:
   test-conditions:
     run-on: ubuntu-latest
 
-    steaps:
+    steps:
       - name: simple evaluation on master
         if: github.ref == 'refs/head/master'
         run: echo "runs"
