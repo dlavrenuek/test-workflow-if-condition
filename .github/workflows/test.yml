@@ -14,17 +14,17 @@ jobs:
 
     steps:
       - name: simple evaluation on master
-        if: github.ref == 'refs/head/master'
+        if: github.ref == 'refs/heads/master'
         run: echo "runs"
 
       - name: simple evaluation on test
-        if: github.ref == 'refs/head/test'
+        if: github.ref == 'refs/heads/test'
         run: echo "runs"
 
       - name: false positive with expression syntac evaluation
         if: github.ref == 'refs/head/${{ env.TEST_BRANCH }}'
         run: echo "runs"
 
-      - name: false negative with expression syntac evaluation
-        if: true || '${{ env.EMPTY_VALUE }}'
+      - name: false positive with expression syntac evaluation
+        if: false && '${{ env.EMPTY_VALUE }}'
         run: echo "runs"
